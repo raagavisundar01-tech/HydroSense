@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Water glassmorphism and gradient styles */
+.water-gradient {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%);
+}
+
+.water-gradient-light {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
+}
+
+.water-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(224, 242, 254, 0.7);
+}
+
+.water-glass-dark {
+  background: rgba(12, 74, 110, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.water-card {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.water-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -10px rgba(2, 132, 199, 0.18);
+}
+
+/* Water wave SVG background */
+.wave-divider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  direction: ltr;
+}
+
+/* Droppy the water cartoon mascot animations */
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+.animate-blink {
+  animation: blink 4s infinite;
+  transform-origin: center;
+}
+
+@keyframes dropPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.6); }
+  70% { transform: scale(1); box-shadow: 0 0 0 16px rgba(14, 165, 233, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+}
+
+.animate-drop-pulse {
+  animation: dropPulse 2.5s infinite;
+}
+
+/* Leaflet map styling fixes */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+  z-index: 10;
+}
