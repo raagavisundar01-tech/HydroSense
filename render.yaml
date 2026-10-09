@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: hydrosense-ml-service
+    env: python
+    rootDir: ml-service
+    buildCommand: pip install -r requirements.txt gunicorn
+    startCommand: gunicorn app:app -b 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+
+  - type: web
+    name: hydrosense-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node src/server.js
+    envVars:
+      - key: NODE_VERSION
+        value: 20.0.0
+      - key: ML_API_URL
+        fromService:
+          type: web
+          name: hydrosense-ml-service
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: CLERK_SECRET_KEY
+        sync: false # You will add your actual key in the Render dashboard securely
+      - key: MONGODB_URI
+        sync: false # Set this in Render dashboard (e.g. MongoDB Atlas URI). If omitted, falls back to in-memory mode.
