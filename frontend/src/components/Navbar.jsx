@@ -136,9 +136,9 @@ export const Navbar = () => {
               </>
             ) : (
               <>
-                <a href="#features" className="hover:text-sky-600 transition">Features</a>
-                <a href="#how-it-works" className="hover:text-sky-600 transition">How It Works</a>
-                <a href="#benefits" className="hover:text-sky-600 transition">Benefits</a>
+                <a href="/#features" className="hover:text-sky-600 transition">Features</a>
+                <a href="/#how-it-works" className="hover:text-sky-600 transition">How It Works</a>
+                <a href="/#benefits" className="hover:text-sky-600 transition">Benefits</a>
               </>
             )}
           </nav>

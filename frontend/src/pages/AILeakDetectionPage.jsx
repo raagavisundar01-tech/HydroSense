@@ -74,7 +74,7 @@ export const AILeakDetectionPage = () => {
         zone: simZone,
         consumption: simConsumption,
         normalAverage: simBaseline,
-        forceLeak: true
+        forceLeak: false
       });
       setTestResult(res.data.aiAnalysis);
       fetchAlerts();
