@@ -194,7 +194,7 @@ router.post('/simulate-reading', protect, async (req, res) => {
         notes: `Simulated anomaly triggered. AI calculated ${Math.round(aiResult.leak_probability * 100)}% leak probability.`
       });
 
-      // Send Mascot Notification for water leak
+      // Send Mascot Notification for water leak (To Admins)
       await NotificationRepo.create({
         targetRole: 'admin',
         title: `🚨 AI Leak Alert Triggered: ${building}`,
@@ -202,6 +202,16 @@ router.post('/simulate-reading', protect, async (req, res) => {
         type: 'leak',
         priority: 'critical',
         droppyMood: 'alert'
+      });
+
+      // Send Mascot Notification to Residents of the affected block
+      await NotificationRepo.create({
+        targetRole: 'resident',
+        title: `⚠️ Water Maintenance Notice: ${building}`,
+        message: `Our AI system has detected a potential water flow anomaly in ${building}. Maintenance staff are investigating. Water supply may be temporarily affected.`,
+        type: 'alert',
+        priority: 'high',
+        droppyMood: 'warning'
       });
     }
 
