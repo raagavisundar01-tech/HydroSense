@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import mongoose from 'dotenv';
 import { connectDB } from './config/db.js';
-import { getSeedData } from '../../database/seedData.js';
+import { getSeedData } from './database/seedData.js';
 import {
   MongooseUser,
   MongooseBuilding,

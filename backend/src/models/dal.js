@@ -7,7 +7,7 @@ import {
   DemandPredictionSchema,
   BuildingSchema,
   NotificationSchema
-} from '../../../database/schemas.js';
+} from '../database/schemas.js';
 import { getMemoryStore, isMockDb } from '../config/db.js';
 
 // Mongoose Models

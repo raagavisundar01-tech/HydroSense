@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { getSeedData } from '../../../database/seedData.js';
+import { getSeedData } from '../database/seedData.js';
 
 let isUsingMemoryStore = false;
 let memoryStore = {
