@@ -2,6 +2,7 @@ services:
   - type: web
     name: hydrosense-ml-service
     env: python
+    plan: free
     rootDir: ml-service
     buildCommand: pip install -r requirements.txt gunicorn
     startCommand: gunicorn app:app -b 0.0.0.0:$PORT
@@ -12,6 +13,7 @@ services:
   - type: web
     name: hydrosense-backend
     env: node
+    plan: free
     rootDir: backend
     buildCommand: npm install
     startCommand: node src/server.js
